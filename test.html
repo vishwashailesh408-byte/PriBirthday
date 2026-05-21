@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 
 <title>Happy Birthday Priii 🎂</title>
 
@@ -19,7 +19,6 @@
 
 html{
   scroll-behavior:smooth;
-  -webkit-text-size-adjust:100%;
 }
 
 body{
@@ -28,7 +27,7 @@ body{
   font-family:'Poppins',sans-serif;
   color:white;
   width:100%;
-  min-height:100dvh;
+  min-height:100vh;
   position:relative;
 }
 
@@ -66,17 +65,13 @@ body{
   justify-content:center;
   flex-direction:column;
 
-  transition:0.6s;
+  overflow-y:auto;
 
   text-align:center;
 
-  overflow-y:auto;
-  overflow-x:hidden;
+  padding:18px;
 
-  padding-top:max(20px, env(safe-area-inset-top));
-  padding-bottom:max(20px, env(safe-area-inset-bottom));
-  padding-left:16px;
-  padding-right:16px;
+  transition:0.6s;
 }
 
 .hidden{
@@ -111,14 +106,15 @@ body{
 /* ================= COUNTDOWN ================= */
 
 .subtitle{
-  letter-spacing:4px;
-  color:rgba(255,255,255,0.5);
-  margin-bottom:20px;
   font-size:12px;
+  letter-spacing:4px;
+  color:rgba(255,255,255,0.6);
+  margin-bottom:18px;
 }
 
 .name{
-  font-size:80px;
+
+  font-size:82px;
   font-family:'Playfair Display',serif;
 
   background:linear-gradient(90deg,#ff5db1,#c77dff,#ffd166);
@@ -126,11 +122,12 @@ body{
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 
-  margin-bottom:30px;
+  margin-bottom:20px;
 }
 
 .timer{
-  font-size:140px;
+
+  font-size:130px;
   font-weight:bold;
 
   background:linear-gradient(90deg,#ff5db1,#c77dff);
@@ -142,14 +139,8 @@ body{
 }
 
 @keyframes pulse{
-
-  0%,100%{
-    transform:scale(1);
-  }
-
-  50%{
-    transform:scale(1.08);
-  }
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.08);}
 }
 
 /* ================= COMMON CARD ================= */
@@ -163,72 +154,64 @@ body{
   width:100%;
   max-width:430px;
 
-  margin:auto;
-
   background:rgba(255,255,255,0.08);
 
-  border-radius:30px;
+  border-radius:28px;
 
-  padding:28px;
+  padding:24px;
 
   backdrop-filter:blur(15px);
 
-  box-shadow:0 0 30px rgba(255,255,255,0.08);
+  box-shadow:0 0 25px rgba(255,255,255,0.08);
 }
 
-/* ================= MESSAGE CARD ================= */
+/* ================= MESSAGE ================= */
 
 .avatar{
   font-size:70px;
-  margin-bottom:20px;
+  margin-bottom:18px;
 }
 
 .message{
   font-size:24px;
-  line-height:1.6;
+  line-height:1.7;
+  margin-bottom:25px;
   font-family:'Playfair Display',serif;
-  margin-bottom:30px;
 }
 
-/* ================= BUTTONS ================= */
+/* ================= BUTTON ================= */
 
 .btn{
 
   border:none;
 
-  padding:14px 35px;
+  background:linear-gradient(135deg,#ff5db1,#9b5cff);
+
+  color:white;
+
+  padding:14px 24px;
 
   border-radius:40px;
 
   cursor:pointer;
 
-  color:white;
+  font-size:17px;
 
-  font-weight:bold;
-
-  font-size:18px;
-
-  background:linear-gradient(135deg,#ff5db1,#9b5cff);
-
-  box-shadow:0 0 25px rgba(255,93,177,0.4);
+  font-weight:600;
 
   transition:0.3s;
 
-  min-height:52px;
-
-  width:auto;
-
-  max-width:100%;
+  width:100%;
 }
 
 .btn:hover{
-  transform:scale(1.05);
+  transform:scale(1.04);
 }
 
 /* ================= DOTS ================= */
 
 .dots{
-  margin-top:20px;
+  margin-top:18px;
 }
 
 .dot{
@@ -238,23 +221,42 @@ body{
 
   background:#666;
 
+  display:inline-block;
+
   border-radius:50%;
 
-  display:inline-block;
   margin:5px;
 }
 
 .active{
-  width:28px;
-  border-radius:20px;
+  width:26px;
+  border-radius:30px;
   background:#ff5db1;
 }
 
 /* ================= CAKE ================= */
 
+.banner{
+
+  font-size:52px;
+
+  margin-bottom:20px;
+
+  font-family:'Playfair Display',serif;
+
+  background:linear-gradient(90deg,#ff5db1,#ffd166,#9b5cff);
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
 .cake{
-  font-size:170px;
+
+  font-size:160px;
+
   animation:float 3s infinite ease-in-out;
+
+  margin-bottom:20px;
 }
 
 @keyframes float{
@@ -264,30 +266,14 @@ body{
   }
 
   50%{
-    transform:translateY(-20px);
+    transform:translateY(-18px);
   }
-}
-
-.banner{
-
-  font-size:55px;
-
-  font-family:'Playfair Display',serif;
-
-  margin-bottom:20px;
-
-  background:linear-gradient(90deg,#ff5db1,#ffd166,#9b5cff);
-
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
 }
 
 /* ================= LETTER ================= */
 
 .letter{
-  color:white;
-  line-height:1.9;
-  font-family:'Playfair Display',serif;
+  line-height:1.8;
 }
 
 /* ================= GALLERY ================= */
@@ -296,15 +282,21 @@ body{
 
   width:100%;
 
-  max-height:65dvh;
+  height:auto;
+
+  max-height:62vh;
 
   object-fit:cover;
 
   border-radius:22px;
 
-  background:#111;
+  display:block;
 
-  transition:0.4s;
+  opacity:1;
+
+  transition:0.4s ease;
+
+  background:#111;
 }
 
 .gallery-buttons{
@@ -315,54 +307,41 @@ body{
 
   align-items:center;
 
-  gap:14px;
+  gap:16px;
 
   margin-top:18px;
-
-  flex-wrap:wrap;
-
-  width:100%;
 }
 
 .arrow-btn{
 
-  width:58px;
-  height:58px;
-
-  min-width:58px;
-  min-height:58px;
+  width:56px;
+  height:56px;
 
   border:none;
 
   border-radius:50%;
 
-  font-size:24px;
+  font-size:22px;
 
   cursor:pointer;
 
   color:white;
 
   background:linear-gradient(135deg,#ff5db1,#9b5cff);
-
-  flex-shrink:0;
-
-  box-shadow:0 0 18px rgba(255,93,177,0.4);
 }
 
 .photo-count{
-  margin-top:15px;
+  margin-top:14px;
   color:rgba(255,255,255,0.7);
 }
 
-/* ================= GREETING CARD ================= */
+/* ================= GREETING ================= */
 
 .greeting-title{
 
-  text-align:center;
-
-  margin-bottom:25px;
-
   font-size:38px;
+
+  margin-bottom:22px;
 
   font-family:'Playfair Display',serif;
 
@@ -374,13 +353,11 @@ body{
 
 .typing-text{
 
-  color:white;
-
-  font-size:18px;
+  white-space:pre-line;
 
   line-height:2;
 
-  white-space:pre-line;
+  font-size:18px;
 
   text-align:left;
 }
@@ -409,7 +386,7 @@ body{
   pointer-events:auto;
 }
 
-/* ================= HEART FLOAT ================= */
+/* ================= HEART ================= */
 
 @keyframes floatHeart{
 
@@ -426,55 +403,41 @@ body{
 
 /* ================= MOBILE ================= */
 
-@media screen and (max-width:768px){
+@media(max-width:768px){
 
   .name{
     font-size:56px;
-    line-height:1.1;
   }
 
   .timer{
-    font-size:90px;
+    font-size:88px;
   }
 
   .banner{
-    font-size:32px;
+    font-size:34px;
   }
 
   .cake{
-    font-size:100px;
+    font-size:105px;
   }
 
   .message{
     font-size:20px;
   }
 
-  .btn{
-    width:100%;
-    font-size:16px;
-    padding:14px 18px;
-  }
-
   .typing-text{
     font-size:16px;
-    line-height:1.9;
   }
-
 }
 
-@media screen and (max-width:480px){
-
-  .screen{
-    padding-left:12px;
-    padding-right:12px;
-  }
+@media(max-width:480px){
 
   .name{
     font-size:44px;
   }
 
   .timer{
-    font-size:68px;
+    font-size:65px;
   }
 
   .banner{
@@ -483,14 +446,6 @@ body{
 
   .cake{
     font-size:85px;
-  }
-
-  .card,
-  .gallery-box,
-  .greeting-card,
-  .letter{
-    padding:18px;
-    border-radius:22px;
   }
 
   .message{
@@ -506,40 +461,17 @@ body{
     font-size:28px;
   }
 
+  .card,
+  .gallery-box,
+  .greeting-card,
+  .letter{
+    padding:18px;
+  }
+
   .arrow-btn{
     width:52px;
     height:52px;
-    font-size:22px;
   }
-
-}
-
-@media screen and (max-width:360px){
-
-  .name{
-    font-size:38px;
-  }
-
-  .timer{
-    font-size:58px;
-  }
-
-  .banner{
-    font-size:22px;
-  }
-
-  .cake{
-    font-size:75px;
-  }
-
-  .typing-text{
-    font-size:14px;
-  }
-
-  .btn{
-    font-size:14px;
-  }
-
 }
 
 </style>
@@ -586,11 +518,9 @@ body{
     </button>
 
     <div class="dots">
-
       <span class="dot active"></span>
       <span class="dot"></span>
       <span class="dot"></span>
-
     </div>
 
   </div>
@@ -645,7 +575,13 @@ body{
 
   <div class="gallery-box">
 
-    <img id="galleryImage" src="IMG_8488.JPG">
+    <img
+      id="galleryImage"
+      src="./IMG_8488.JPG"
+      loading="eager"
+      decoding="async"
+      alt="Birthday Memory"
+    >
 
     <div class="gallery-buttons">
 
@@ -679,9 +615,9 @@ body{
 
   <div class="greeting-card">
 
-    <h1 class="greeting-title">
+    <div class="greeting-title">
       For Priii 💖
-    </h1>
+    </div>
 
     <div class="typing-text" id="typingText"></div>
 
@@ -748,7 +684,7 @@ for(let i=0;i<120;i++){
   document.getElementById("stars").appendChild(star);
 }
 
-/* ================= FALLING WORDS ================= */
+/* ================= FALLING TEXT ================= */
 
 const words=["Happy","Birthday","Priii","🎂","🎉","💖","✨"];
 
@@ -810,7 +746,7 @@ let countdown=setInterval(()=>{
 
 },1000);
 
-/* ================= MESSAGE SLIDER ================= */
+/* ================= MESSAGE ================= */
 
 const messages=[
 
@@ -900,16 +836,16 @@ function openGallery(){
 
 const photos=[
 
-"IMG_8488.JPG",
-"IMG_8489.JPG",
-"IMG_8490.JPG",
-"IMG_8492.JPG",
-"IMG_8493.JPG",
-"IMG_8494.JPG",
-"IMG_8495.JPG",
-"IMG_8496.JPG",
-"IMG_8497.JPG",
-"IMG_8498.JPG"
+"./IMG_8488.JPG",
+"./IMG_8489.JPG",
+"./IMG_8490.JPG",
+"./IMG_8492.JPG",
+"./IMG_8493.JPG",
+"./IMG_8494.JPG",
+"./IMG_8495.JPG",
+"./IMG_8496.JPG",
+"./IMG_8497.JPG",
+"./IMG_8498.JPG"
 
 ];
 
@@ -949,26 +885,26 @@ function updateGallery(){
 
   const image=document.getElementById("galleryImage");
 
-  image.style.opacity="0.3";
+  image.style.opacity="0";
 
-  const newImg=new Image();
+  setTimeout(()=>{
 
-  newImg.src=photos[currentPhoto];
+    image.src=photos[currentPhoto];
 
-  newImg.onload=()=>{
+    image.onload=()=>{
 
-    image.src=newImg.src;
+      image.style.opacity="1";
+    };
 
-    image.style.opacity="1";
-  };
+  },200);
 
   document.getElementById("photoCount")
-  .innerHTML=(currentPhoto+1)+" / 10";
+  .innerHTML=(currentPhoto+1)+" / "+photos.length;
 }
 
 /* ================= GREETING CARD ================= */
 
-const greetingMessage = `You are Sweet, Loyal, My rock, and I'm so grateful to have you in my life.
+const greetingMessage=`You are Sweet, Loyal, My rock, and I'm so grateful to have you in my life.
 
 You bring so much warmth and sweetness into my life. Every moment with you is precious.
 
@@ -994,24 +930,21 @@ function openGreetingCard(){
 
 function startTypingEffect(){
 
-  const textElement =
-  document.getElementById("typingText");
+  const textElement=document.getElementById("typingText");
 
-  textElement.innerHTML = "";
+  textElement.innerHTML="";
 
-  let i = 0;
-
-  const speed = 35;
+  let i=0;
 
   function typing(){
 
-    if(i < greetingMessage.length){
+    if(i<greetingMessage.length){
 
       textElement.innerHTML += greetingMessage.charAt(i);
 
       i++;
 
-      setTimeout(typing, speed);
+      setTimeout(typing,35);
     }
   }
 
@@ -1035,7 +968,7 @@ function closePopup(){
   .classList.remove("show");
 }
 
-/* ================= FLOAT HEARTS ================= */
+/* ================= FLOATING HEARTS ================= */
 
 setInterval(()=>{
 
@@ -1051,8 +984,7 @@ setInterval(()=>{
 
   heart.style.fontSize=(20+Math.random()*30)+"px";
 
-  heart.style.animation=
-  "floatHeart 5s linear forwards";
+  heart.style.animation="floatHeart 5s linear forwards";
 
   document.body.appendChild(heart);
 
