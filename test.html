@@ -27,7 +27,7 @@ body{
   position:relative;
 }
 
-/* ================= STARS ================= */
+/* STARS */
 
 #stars{
   position:fixed;
@@ -47,7 +47,7 @@ body{
   to{opacity:1;}
 }
 
-/* ================= SCREENS ================= */
+/* SCREEN */
 
 .screen{
   position:fixed;
@@ -73,7 +73,7 @@ body{
   transform:scale(0.95);
 }
 
-/* ================= FALLING TEXT ================= */
+/* FALLING WORDS */
 
 #dropping-text{
   position:fixed;
@@ -96,7 +96,7 @@ body{
   }
 }
 
-/* ================= COUNTDOWN ================= */
+/* COUNTDOWN */
 
 .subtitle{
   letter-spacing:4px;
@@ -134,13 +134,12 @@ body{
   50%{transform:scale(1.08);}
 }
 
-/* ================= COMMON CARD ================= */
+/* CARD */
 
 .card,
 .gallery-box,
 .greeting-card,
-.letter,
-.popup-box{
+.letter{
 
   width:100%;
   max-width:430px;
@@ -156,7 +155,7 @@ body{
   box-shadow:0 0 25px rgba(255,255,255,0.08);
 }
 
-/* ================= MESSAGE ================= */
+/* MESSAGE */
 
 .avatar{
   font-size:70px;
@@ -170,7 +169,7 @@ body{
   font-family:'Playfair Display',serif;
 }
 
-/* ================= BUTTON ================= */
+/* BUTTON */
 
 .btn{
 
@@ -180,9 +179,9 @@ body{
 
   color:white;
 
-  padding:10px 18px;
+  padding:12px 20px;
 
-  border-radius:40px;
+  border-radius:35px;
 
   cursor:pointer;
 
@@ -190,11 +189,9 @@ body{
 
   font-weight:600;
 
-  width:auto;
-
-  min-width:170px;
-
   transition:0.3s;
+
+  width:100%;
 }
 
 .btn:hover{
@@ -206,7 +203,30 @@ body{
   cursor:not-allowed;
 }
 
-/* ================= DOTS ================= */
+/* SMALL BUTTON */
+
+.small-btn{
+
+  border:none;
+
+  padding:10px 18px;
+
+  border-radius:30px;
+
+  cursor:pointer;
+
+  font-size:14px;
+
+  font-weight:600;
+
+  color:white;
+
+  background:linear-gradient(135deg,#666,#888);
+
+  width:100%;
+}
+
+/* DOTS */
 
 .dots{
   margin-top:20px;
@@ -227,7 +247,7 @@ body{
   background:#ff5db1;
 }
 
-/* ================= CAKE ================= */
+/* CAKE */
 
 .banner{
 
@@ -254,23 +274,19 @@ body{
   50%{transform:translateY(-18px);}
 }
 
-/* ================= GALLERY ================= */
+/* GALLERY */
 
 .gallery-box img{
 
   width:100%;
 
-  max-height:62vh;
+  max-height:60vh;
 
   object-fit:cover;
 
   border-radius:22px;
 
-  background:#111;
-
   display:block;
-
-  opacity:1;
 
   transition:0.4s ease;
 }
@@ -309,13 +325,13 @@ body{
   color:rgba(255,255,255,0.7);
 }
 
-/* ================= GREETING ================= */
+/* GREETING */
 
 .greeting-title{
 
-  font-size:38px;
+  font-size:36px;
 
-  margin-bottom:22px;
+  margin-bottom:20px;
 
   font-family:'Playfair Display',serif;
 
@@ -336,31 +352,49 @@ body{
   text-align:left;
 }
 
-/* ================= POPUP ================= */
+/* SPECIAL SCREEN */
 
-#popup{
+.special-message{
 
-  position:fixed;
-  inset:0;
+  font-size:18px;
+  line-height:2;
+  color:white;
+}
 
-  background:rgba(0,0,0,0.7);
+.special-photo{
 
+  width:100%;
+
+  max-height:45vh;
+
+  object-fit:cover;
+
+  border-radius:20px;
+}
+
+/* FINAL */
+
+.final-screen{
+  height:100vh;
   display:flex;
-  align-items:center;
   justify-content:center;
-
-  opacity:0;
-  pointer-events:none;
-
-  transition:0.5s;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+  padding:20px;
 }
 
-#popup.show{
-  opacity:1;
-  pointer-events:auto;
+.final-title{
+  font-size:40px;
+  margin-bottom:20px;
+
+  background:linear-gradient(90deg,#ff5db1,#ffd166,#9b5cff);
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-/* ================= HEART ================= */
+/* HEART */
 
 @keyframes floatHeart{
 
@@ -375,65 +409,28 @@ body{
   }
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
 @media(max-width:768px){
 
-  .name{
-    font-size:56px;
-  }
+  .name{font-size:56px;}
+  .timer{font-size:90px;}
+  .banner{font-size:32px;}
+  .cake{font-size:105px;}
+  .message{font-size:20px;}
+  .typing-text{font-size:16px;}
 
-  .timer{
-    font-size:90px;
-  }
-
-  .banner{
-    font-size:32px;
-  }
-
-  .cake{
-    font-size:105px;
-  }
-
-  .message{
-    font-size:20px;
-  }
-
-  .typing-text{
-    font-size:16px;
-  }
 }
 
 @media(max-width:480px){
 
-  .name{
-    font-size:44px;
-  }
-
-  .timer{
-    font-size:65px;
-  }
-
-  .banner{
-    font-size:25px;
-  }
-
-  .cake{
-    font-size:85px;
-  }
-
-  .message{
-    font-size:18px;
-  }
-
-  .typing-text{
-    font-size:15px;
-    line-height:1.8;
-  }
-
-  .greeting-title{
-    font-size:28px;
-  }
+  .name{font-size:44px;}
+  .timer{font-size:65px;}
+  .banner{font-size:25px;}
+  .cake{font-size:85px;}
+  .message{font-size:18px;}
+  .typing-text{font-size:15px;}
+  .greeting-title{font-size:28px;}
 
   .card,
   .gallery-box,
@@ -442,32 +439,6 @@ body{
     padding:18px;
   }
 
-}
-
-/* ================= FINAL SCREEN ================= */
-
-.final-screen{
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  text-align:center;
-  padding:20px;
-}
-
-.final-title{
-  font-size:42px;
-  margin-bottom:20px;
-  background:linear-gradient(90deg,#ff5db1,#ffd166,#9b5cff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.final-text{
-  font-size:18px;
-  opacity:0.8;
-  line-height:1.8;
 }
 
 </style>
@@ -577,12 +548,7 @@ body{
 
   <div class="gallery-box">
 
-    <img
-      id="galleryImage"
-      src="./IMG_8488.JPG"
-      loading="eager"
-      alt="Birthday Memory"
-    >
+    <img id="galleryImage" src="./IMG_8488.JPG">
 
     <div class="gallery-buttons">
 
@@ -610,7 +576,7 @@ body{
 
 </div>
 
-<!-- SPECIAL PAGE -->
+<!-- SPECIAL SCREEN -->
 
 <div class="screen hidden" id="specialScreen">
 
@@ -620,9 +586,9 @@ body{
       Wait Priii 💖
     </div>
 
-    <div style="font-size:18px; line-height:2;">
+    <div class="special-message">
 
-      You mean a lot to me ✨
+      You mean so much to me ✨
       <br><br>
 
       Every photo with you
@@ -630,7 +596,7 @@ body{
 
       <br><br>
 
-      So don't rush...
+      I don't want you to rush through them...
       feel every moment slowly 💕
 
       <br><br>
@@ -644,13 +610,17 @@ body{
     <img
       id="specialPhoto"
       src="./IMG_8488.JPG"
-      style="
-      width:100%;
-      max-height:50vh;
-      object-fit:cover;
-      border-radius:20px;
-      "
+      class="special-photo"
     >
+
+    <br><br>
+
+    <button
+      class="small-btn"
+      onclick="goBackGallery()"
+    >
+      ⬅ Back To Photos
+    </button>
 
     <br><br>
 
@@ -660,7 +630,7 @@ body{
       style="display:none;"
       onclick="continueToGreeting()"
     >
-      Open Your Letter 💌
+      Open Greeting Card 💌
     </button>
 
   </div>
@@ -684,34 +654,10 @@ body{
     <button
       class="btn"
       id="finishBtn"
-      onclick="showPopup()"
       disabled
+      onclick="finishSurprise()"
     >
       Finish Surprise 🎉
-    </button>
-
-  </div>
-
-</div>
-
-<!-- POPUP -->
-
-<div id="popup">
-
-  <div class="popup-box">
-
-    <h1>🎉 Thank You Priii 💖</h1>
-
-    <br>
-
-    <p>
-      Stay happy and keep smiling forever 🌸
-    </p>
-
-    <br><br>
-
-    <button class="btn" onclick="closePopup()">
-      Exit Surprise 💖
     </button>
 
   </div>
@@ -722,11 +668,27 @@ body{
 
 /* MUSIC */
 
-window.addEventListener("click",()=>{
+window.addEventListener("load",()=>{
 
-  document.getElementById("music").play();
+  const music=document.getElementById("music");
 
-},{once:true});
+  const playPromise=music.play();
+
+  if(playPromise!==undefined){
+
+    playPromise.catch(()=>{
+
+      document.body.addEventListener("click",()=>{
+
+        music.play();
+
+      },{once:true});
+
+    });
+
+  }
+
+});
 
 /* STARS */
 
@@ -811,7 +773,7 @@ let countdown=setInterval(()=>{
 
 },1000);
 
-/* MESSAGE */
+/* MESSAGES */
 
 const messages=[
 
@@ -921,6 +883,12 @@ function nextImageSlide(){
     currentPhoto++;
 
     updateGallery();
+
+    if(currentPhoto === photos.length-1){
+
+      document.getElementById("continueBtn")
+      .style.display="block";
+    }
   }
 }
 
@@ -942,48 +910,37 @@ function updateGallery(){
 
   document.getElementById("photoCount")
   .innerHTML=(currentPhoto+1)+" / "+photos.length;
+
+  document.getElementById("specialPhoto").src=photos[currentPhoto];
 }
 
-/* OPEN SPECIAL PAGE */
+/* OPEN GREETING */
 
 function openGreetingCard(){
 
-  document.getElementById("galleryScreen")
-  .classList.add("hidden");
+  if(currentPhoto < photos.length-1){
 
-  document.getElementById("specialScreen")
-  .classList.remove("hidden");
+    document.getElementById("galleryScreen")
+    .classList.add("hidden");
 
-  startSpecialMemories();
+    document.getElementById("specialScreen")
+    .classList.remove("hidden");
+
+    return;
+  }
+
+  continueToGreeting();
 }
 
-/* SPECIAL MEMORIES */
+/* BACK */
 
-let specialIndex = 0;
+function goBackGallery(){
 
-function startSpecialMemories(){
+  document.getElementById("specialScreen")
+  .classList.add("hidden");
 
-  const img = document.getElementById("specialPhoto");
-
-  img.src = photos[0];
-
-  let interval = setInterval(()=>{
-
-    specialIndex++;
-
-    if(specialIndex < photos.length){
-
-      img.src = photos[specialIndex];
-
-    }else{
-
-      clearInterval(interval);
-
-      document.getElementById("continueBtn")
-      .style.display = "inline-block";
-    }
-
-  },2000);
+  document.getElementById("galleryScreen")
+  .classList.remove("hidden");
 }
 
 /* CONTINUE */
@@ -991,6 +948,9 @@ function startSpecialMemories(){
 function continueToGreeting(){
 
   document.getElementById("specialScreen")
+  .classList.add("hidden");
+
+  document.getElementById("galleryScreen")
   .classList.add("hidden");
 
   document.getElementById("greetingScreen")
@@ -1012,15 +972,11 @@ May this year bring you countless beautiful moments and wonderful memories.
 Here's to celebrating you today and always!
 
 With love and best wishes,
-Your Special Sl 💖`;
+Your Special Friend Shailesh 💖`;
 
 function startTypingEffect(){
 
   const textElement=document.getElementById("typingText");
-
-  const finishBtn=document.getElementById("finishBtn");
-
-  finishBtn.disabled=true;
 
   textElement.innerHTML="";
 
@@ -1038,52 +994,41 @@ function startTypingEffect(){
 
     }else{
 
-      finishBtn.disabled=false;
+      document.getElementById("finishBtn")
+      .disabled=false;
     }
   }
 
   typing();
 }
 
-/* POPUP */
+/* FINISH */
 
-function showPopup(){
+function finishSurprise(){
 
-  document.getElementById("greetingScreen")
-  .classList.add("hidden");
+  document.body.innerHTML=`
 
-  document.getElementById("popup")
-  .classList.add("show");
-}
+  <div class="final-screen">
 
-/* EXIT */
+    <div class="final-title">
+      Thank You Priii 💖
+    </div>
 
-function closePopup(){
+    <div style="font-size:18px; line-height:2; opacity:0.8;">
 
-  window.close();
+      Surprise Completed Successfully ✨
+      <br><br>
 
-  setTimeout(()=>{
-
-    document.body.innerHTML=`
-
-    <div class="final-screen">
-
-      <div class="final-title">
-        Thank You Priii 💖
-      </div>
-
-      <div class="final-text">
-        You can now close this window 🌸
-      </div>
+      You can now close this page 🌸
 
     </div>
 
-    `;
+  </div>
 
-  },500);
+  `;
 }
 
-/* FLOAT HEARTS */
+/* FLOAT HEART */
 
 setInterval(()=>{
 
