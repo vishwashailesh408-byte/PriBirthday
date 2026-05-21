@@ -149,7 +149,7 @@ body{
 
   border-radius:28px;
 
-  padding:22px;
+  padding:24px;
 
   backdrop-filter:blur(14px);
 
@@ -182,7 +182,7 @@ body{
 
   padding:10px 18px;
 
-  border-radius:30px;
+  border-radius:40px;
 
   cursor:pointer;
 
@@ -192,13 +192,18 @@ body{
 
   width:auto;
 
-  min-width:160px;
+  min-width:170px;
 
   transition:0.3s;
 }
 
 .btn:hover{
   transform:scale(1.03);
+}
+
+.btn:disabled{
+  opacity:0.5;
+  cursor:not-allowed;
 }
 
 /* ================= DOTS ================= */
@@ -283,14 +288,14 @@ body{
 
 .arrow-btn{
 
-  width:45px;
-  height:45px;
+  width:50px;
+  height:50px;
 
   border:none;
 
   border-radius:50%;
 
-  font-size:18px;
+  font-size:20px;
 
   cursor:pointer;
 
@@ -439,7 +444,7 @@ body{
 
 }
 
-/* ================= THANK YOU SCREEN ================= */
+/* ================= FINAL SCREEN ================= */
 
 .final-screen{
   height:100vh;
@@ -576,7 +581,6 @@ body{
       id="galleryImage"
       src="./IMG_8488.JPG"
       loading="eager"
-      decoding="async"
       alt="Birthday Memory"
     >
 
@@ -606,6 +610,63 @@ body{
 
 </div>
 
+<!-- SPECIAL PAGE -->
+
+<div class="screen hidden" id="specialScreen">
+
+  <div class="greeting-card">
+
+    <div class="greeting-title">
+      Wait Priii 💖
+    </div>
+
+    <div style="font-size:18px; line-height:2;">
+
+      You mean a lot to me ✨
+      <br><br>
+
+      Every photo with you
+      holds a beautiful memory 🌸
+
+      <br><br>
+
+      So don't rush...
+      feel every moment slowly 💕
+
+      <br><br>
+
+      I made all this specially for you 🥺💖
+
+    </div>
+
+    <br><br>
+
+    <img
+      id="specialPhoto"
+      src="./IMG_8488.JPG"
+      style="
+      width:100%;
+      max-height:50vh;
+      object-fit:cover;
+      border-radius:20px;
+      "
+    >
+
+    <br><br>
+
+    <button
+      class="btn"
+      id="continueBtn"
+      style="display:none;"
+      onclick="continueToGreeting()"
+    >
+      Open Your Letter 💌
+    </button>
+
+  </div>
+
+</div>
+
 <!-- GREETING -->
 
 <div class="screen hidden" id="greetingScreen">
@@ -620,7 +681,12 @@ body{
 
     <br><br>
 
-    <button class="btn" onclick="showPopup()">
+    <button
+      class="btn"
+      id="finishBtn"
+      onclick="showPopup()"
+      disabled
+    >
       Finish Surprise 🎉
     </button>
 
@@ -654,29 +720,13 @@ body{
 
 <script>
 
-/* MUSIC AUTOPLAY */
+/* MUSIC */
 
-window.addEventListener("load",()=>{
+window.addEventListener("click",()=>{
 
-  const music=document.getElementById("music");
+  document.getElementById("music").play();
 
-  const playPromise=music.play();
-
-  if(playPromise!==undefined){
-
-    playPromise.catch(()=>{
-
-      document.body.addEventListener("click",()=>{
-
-        music.play();
-
-      },{once:true});
-
-    });
-
-  }
-
-});
+},{once:true});
 
 /* STARS */
 
@@ -862,11 +912,6 @@ const photos=[
 
 ];
 
-photos.forEach(src=>{
-  const img=new Image();
-  img.src=src;
-});
-
 let currentPhoto=0;
 
 function nextImageSlide(){
@@ -893,21 +938,65 @@ function updateGallery(){
 
   const image=document.getElementById("galleryImage");
 
-  image.style.opacity="0";
-
-  setTimeout(()=>{
-
-    image.src=photos[currentPhoto];
-
-    image.onload=()=>{
-
-      image.style.opacity="1";
-    };
-
-  },200);
+  image.src=photos[currentPhoto];
 
   document.getElementById("photoCount")
   .innerHTML=(currentPhoto+1)+" / "+photos.length;
+}
+
+/* OPEN SPECIAL PAGE */
+
+function openGreetingCard(){
+
+  document.getElementById("galleryScreen")
+  .classList.add("hidden");
+
+  document.getElementById("specialScreen")
+  .classList.remove("hidden");
+
+  startSpecialMemories();
+}
+
+/* SPECIAL MEMORIES */
+
+let specialIndex = 0;
+
+function startSpecialMemories(){
+
+  const img = document.getElementById("specialPhoto");
+
+  img.src = photos[0];
+
+  let interval = setInterval(()=>{
+
+    specialIndex++;
+
+    if(specialIndex < photos.length){
+
+      img.src = photos[specialIndex];
+
+    }else{
+
+      clearInterval(interval);
+
+      document.getElementById("continueBtn")
+      .style.display = "inline-block";
+    }
+
+  },2000);
+}
+
+/* CONTINUE */
+
+function continueToGreeting(){
+
+  document.getElementById("specialScreen")
+  .classList.add("hidden");
+
+  document.getElementById("greetingScreen")
+  .classList.remove("hidden");
+
+  startTypingEffect();
 }
 
 /* GREETING */
@@ -925,20 +1014,13 @@ Here's to celebrating you today and always!
 With love and best wishes,
 Your Special Sl 💖`;
 
-function openGreetingCard(){
-
-  document.getElementById("galleryScreen")
-  .classList.add("hidden");
-
-  document.getElementById("greetingScreen")
-  .classList.remove("hidden");
-
-  startTypingEffect();
-}
-
 function startTypingEffect(){
 
   const textElement=document.getElementById("typingText");
+
+  const finishBtn=document.getElementById("finishBtn");
+
+  finishBtn.disabled=true;
 
   textElement.innerHTML="";
 
@@ -953,6 +1035,10 @@ function startTypingEffect(){
       i++;
 
       setTimeout(typing,35);
+
+    }else{
+
+      finishBtn.disabled=false;
     }
   }
 
@@ -970,36 +1056,34 @@ function showPopup(){
   .classList.add("show");
 }
 
+/* EXIT */
+
 function closePopup(){
 
-  document.body.innerHTML=`
-
-  <div class="final-screen">
-
-    <div class="final-title">
-      Thank You Priii 💖
-    </div>
-
-    <div class="final-text">
-      Surprise Completed Successfully ✨
-        Once Again Wish you A very very Happy Birthday Priiii...!!!💖
-      <br><br>
-      Closing Window...
-    </div>
-
-  </div>
-
-  `;
+  window.close();
 
   setTimeout(()=>{
 
-    window.open('', '_self');
-    window.close();
+    document.body.innerHTML=`
 
-  },2000);
+    <div class="final-screen">
+
+      <div class="final-title">
+        Thank You Priii 💖
+      </div>
+
+      <div class="final-text">
+        You can now close this window 🌸
+      </div>
+
+    </div>
+
+    `;
+
+  },500);
 }
 
-/* FLOAT HEART */
+/* FLOAT HEARTS */
 
 setInterval(()=>{
 
